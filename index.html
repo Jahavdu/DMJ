@@ -86,7 +86,7 @@
         .mobile-nav-item {
             flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
             height: 65px; color: var(--text-silver); text-decoration: none; font-size: 10px; gap: 4px;
-            font-weight: 500; transition: var(--transition); cursor: pointer;
+            font-weight: 500; transition: var(--transition);
         }
         .mobile-nav-item svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; }
         .mobile-nav-item.active { color: var(--text-main); }
@@ -109,7 +109,6 @@
         }
         .hero-slide.active { opacity: 1; z-index: 5; transform: scale(1); transition: opacity 1.2s ease, transform 12s linear; }
         
-        /* FLAWLESS FADE GRADIENT */
         .hero-overlay {
             position: absolute; inset: 0; z-index: 2; pointer-events: none;
             background: 
@@ -226,7 +225,7 @@
 
         .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 20px 4% 60px; }
 
-        /* === IMPROVED PROFILE SECTION === */
+        /* === IMPROVED PROFILE SECTION (WITH KIDS PROFILE) === */
         #view-profile .view-content { padding-top: 160px; text-align: center; }
         #view-profile h1 { font-family: var(--font-cine); font-size: 48px; font-weight: 900; margin-bottom: 60px; letter-spacing: 1px;}
         .profiles-grid { display: flex; justify-content: center; gap: 40px; margin-bottom: 80px; flex-wrap: wrap; }
@@ -309,32 +308,74 @@
         .footer-socials svg { width: 20px; height: 20px; fill: currentColor; cursor: pointer; transition: var(--transition);}
         .footer-socials svg:hover { color: white; }
 
-        /* === MOBILE RESPONSIVENESS === */
+        /* === MOBILE RESPONSIVENESS OVERRIDES === */
         @media (max-width: 768px) {
+            /* Hide Desktop Nav Elements */
             .nav-links, .nav-right { display: none; }
             nav { height: 60px; padding: 0 20px; }
             nav.scrolled { height: 60px; }
+            
+            /* Show Mobile Bottom Nav */
             .mobile-bottom-nav { display: flex; }
             .view-section { padding-bottom: 80px; } 
             
+            /* Fix Hero Section for Mobile */
             .hero { height: 85vh; }
-            .hero-slide { align-items: flex-end; padding-bottom: 10vh; }
+            .hero-slide { align-items: center; padding-bottom: 0; }
+            .hero-content { margin-top: 0; transform: translateX(0) !important; text-align: center; display: flex; flex-direction: column; align-items: center; }
+            .hero-slide.active .hero-content { transform: translateX(0) !important; }
+            
+            /* Typography Scaling */
             .hero-title { font-size: 45px; }
             .hero-subtitle { font-size: 20px; letter-spacing: 6px; }
             .hero-desc { display: none; } 
+            
+            /* Button Adjustments */
+            .btn-group { flex-direction: column; width: 100%; gap: 12px; }
+            .btn { width: 100%; justify-content: center; }
+            
+            /* Hide Desktop Controls */
             .hero-indicators { bottom: 30px; }
             .hero-side-arrow { display: none; }
             
+            /* Fix Category Cards (Half-up/Half-down) on Mobile */
+            .content-wrapper { margin-top: -30px; }
+            .brand-hubs { padding: 0 20px 30px; margin-top: 0; gap: 15px; overflow-x: auto; flex-wrap: nowrap; }
+            .hub-card { flex: 0 0 calc(60% - 10px); height: 100px; }
+            .hub-text { font-size: 16px; letter-spacing: 2px; }
+            
+            /* Fix Grid Layouts */
             .content-section { padding: 0 0 40px 20px; }
             .card { flex: 0 0 calc(75% - 16px); min-width: unset; }
             .row-arrow { display: none; } 
-            .brand-hubs { padding-left: 20px; padding-right: 20px; overflow-x: auto; flex-wrap: nowrap; }
-            .hub-card { flex: 0 0 calc(40% - 10px); }
+            .grid-container { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); padding: 20px 20px 100px; gap: 15px;}
             
+            /* Fix Sub-page Headers */
+            .page-hero h1, #view-movies h1, #view-animation h1, #view-music h1, #view-studios h1 { font-size: 36px !important; line-height: 1.2;}
+            #view-music .page-hero { flex-direction: column; padding-top: 100px; text-align: center; gap: 20px;}
+            #view-music .music-art { flex: 0 0 200px; width: 200px; height: 200px;}
+            .studio-grid { grid-template-columns: 1fr; }
+            
+            /* Fix About Us */
+            .about-us-box { padding: 30px; margin: 0 20px; }
+            .about-us-box h1 { font-size: 32px; }
+            .corp-branding { flex-direction: column; gap: 10px; align-items: flex-start; }
+
+            /* Fix Profile Section */
+            .profiles-grid { gap: 20px; }
+            .avatar { width: 100px; height: 100px; }
+            #view-profile h1 { font-size: 32px; margin-bottom: 30px; }
+            .profile-name { font-size: 16px; }
+
+            /* Fix Footer */
             .footer-content { grid-template-columns: 1fr 1fr; }
             .footer-logo-col { grid-column: 1 / -1; }
             .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
             .site-footer { padding-bottom: 100px; } 
+
+            /* Fix Search */
+            .search-input { font-size: 28px; padding-left: 40px; }
+            .search-icon-inside { width: 24px; height: 24px; }
         }
     </style>
 </head>
@@ -539,7 +580,7 @@
                 <p>Welcome to the ultimate cinematic universe. We are a visionary platform dedicated to bringing immersive, glassmorphic, and deeply cinematic worlds straight to your screen.</p>
                 <p>From breathtaking post-apocalyptic narratives to eerie, mythic soundtracks, our mission is to blur the lines between advanced technology and pure art.</p>
                 <div class="corp-branding">
-                    <span class="corp-text">Developed & Curated by <span style="color: white;">Blackout Blend</span></span>
+                    <span class="corp-text">Developed & Curated by <span style="color: white;">DMJ Tech</span></span>
                     <span class="corp-text" style="color: var(--text-silver);">A Division of <span style="color: var(--accent-gold);">DMJ group corporation Pvt. Ltd.</span></span>
                 </div>
             </div>
@@ -571,9 +612,11 @@
         <footer class="site-footer" style="width: 100%;"><div class="footer-bottom footer-bottom-clone"></div></footer>
     </div>
 
-    <!-- JAVASCRIPT LOGIC (Global & Safe) -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // --- Core Application Data ---
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- Data Library ---
         const lib = [
             {t: "ECLIPSE", i: "https://images.unsplash.com/photo-1504333638930-c8787321fea0"},
             {t: "THE CURSED MUSIC BOX", i: "https://images.unsplash.com/photo-1550745165-9bc0b252726f"},
@@ -588,11 +631,7 @@
             {t: "THE VEIL", i: "https://images.unsplash.com/photo-1614729939124-032f0b56c9ce"}
         ];
 
-        // --- Global Methods Attached to Window ---
-        window.insertHTML = (id, html) => {
-            const el = document.getElementById(id);
-            if (el) el.innerHTML = html;
-        };
+        const insertHTML = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
 
         let toastTimeout;
         window.showToast = (message) => {
@@ -606,16 +645,205 @@
             }
         };
 
+        // --- Global Delegator ---
+        document.body.addEventListener('click', (e) => {
+            const playBtn = e.target.closest('.play-btn, .action-circle.primary, .card, .orig-card');
+            if (playBtn && !e.target.closest('.add-list-btn, .remove-btn, .nav-trigger')) {
+                const title = playBtn.dataset.title || playBtn.querySelector('.card-title')?.innerText || playBtn.querySelector('h3')?.innerText || "DMJ Original";
+                window.openPlayer(title);
+            }
+            const addBtn = e.target.closest('.add-list-btn');
+            if (addBtn) { e.stopPropagation(); window.addToMyList(addBtn.dataset.title, addBtn.dataset.img); }
+            const remBtn = e.target.closest('.remove-btn');
+            if (remBtn) { e.stopPropagation(); window.removeFromMyList(remBtn.dataset.index); }
+        });
+
+        // --- Footer Injection ---
+        const footerContent = `
+            <div class="footer-col footer-logo-col">
+                <div class="brand-container" style="margin-bottom: 15px; cursor:default;">
+                    <svg class="brand-logo-svg" viewBox="0 0 100 100"><path d="M20,15 L45,15 C70,15 85,30 85,50 C85,70 70,85 45,85 L20,85 Z" fill="none" stroke="url(#grad1)" stroke-width="8" stroke-linecap="round"/><polygon points="40,35 60,50 40,65" fill="#00D4FF"/></svg>
+                    <div class="brand-text">DMJ<span class="text-gradient">+</span></div>
+                </div>
+                <p>The ultimate cinematic universe. Immersive, glassmorphic, and beautifully designed for the modern screen.</p>
+            </div>
+            <div class="footer-col"><h4>Navigation</h4><a class="nav-trigger" data-target="home">Home</a><a class="nav-trigger" data-target="movies">Movies</a><a class="nav-trigger" data-target="animation">Animation</a></div>
+            <div class="footer-col"><h4>Support</h4><a>FAQ</a><a>Help Center</a><a>Account Setup</a></div>
+            <div class="footer-col"><h4>Legal</h4><a>Privacy Policy</a><a>Terms of Service</a><a>Cookie Preferences</a></div>
+        `;
+        const footerBottom = `
+            <p>&copy; 2026 DMJ group corporation Pvt. Ltd. Developed by DMJ tech.</p>
+            <div class="footer-socials">
+                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2C5.12 19.5 12 19.5 12 19.5s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </div>
+        `;
+        insertHTML('footer-content', footerContent);
+        insertHTML('footer-bottom', footerBottom);
+        document.querySelectorAll('.footer-bottom-clone').forEach(el => el.innerHTML = footerBottom);
+
+        // --- Build Hero Carousel ---
+        const heroData = [
+            {t:"BEYOND THE HORIZON", b:"DMJ ORIGINAL FILM", d:"In a world on the edge of collapse, one memory can light the way.", i:"https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe"},
+            {t:"PROJECT VOID", b:"DMJ TECH EXCLUSIVE", d:"Enter the priority network. An expansive tech thriller.", i:"https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0"},
+            {t:"THE GIRL THE SKY KEPT", b:"DMJ ANIMATION STUDIOS", d:"A breathtaking post-apocalyptic narrative built on pixel-perfect reality.", i:"https://images.unsplash.com/photo-1536440136628-849c177e76a1"},
+            {t:"ECLIPSE", b:"NEW RELEASE", d:"When the sun vanishes, the shadows rise. A heart-pounding experience.", i:"https://images.unsplash.com/photo-1504333638930-c8787321fea0"},
+            {t:"RUST THE MECHANIC", b:"AWARD WINNING", d:"Inside the mechanics of the wasteland.", i:"https://images.unsplash.com/photo-1534447677768-be436bb09401"}
+        ];
+        
+        let heroHtml = '', indHtml = '';
+        heroData.forEach((h, i) => {
+            heroHtml += `
+                <div class="hero-slide ${i===0?'active':''}" style="background-image: url('${h.i}?q=80&w=2500&auto=format&fit=crop');">
+                    <div class="hero-content">
+                        <span class="hero-badge">${h.b}</span>
+                        <h1 class="hero-title">${h.t.replace(' ', '<br><span class="hero-subtitle">')}</span></h1>
+                        <p class="hero-desc">${h.d}</p>
+                        <div class="btn-group">
+                            <button class="btn btn-primary play-btn" data-title="${h.t}">▶ WATCH NOW</button>
+                            <button class="btn btn-secondary add-list-btn" data-title="${h.t}" data-img="${h.i}">+ MY LIST</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            indHtml += `<div class="indicator ${i===0?'active':''}" data-index="${i}"><div class="indicator-fill" style="${i===0?'width:100%':''}"></div></div>`;
+        });
+        insertHTML('heroSlidesContainer', heroHtml);
+        insertHTML('heroIndicators', indHtml);
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        let slideInterval;
+
+        const setSlide = (index) => {
+            if(!slides.length) return;
+            slides[currentSlide].classList.remove('active');
+            indicators[currentSlide].classList.remove('active');
+            const oldFill = indicators[currentSlide].querySelector('.indicator-fill');
+            if(oldFill) { oldFill.style.animation = 'none'; oldFill.offsetHeight; }
+            currentSlide = index;
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+            const newFill = indicators[currentSlide].querySelector('.indicator-fill');
+            if(newFill) newFill.style.animation = 'fillProgress 10s linear forwards';
+            resetSlideInterval();
+        };
+        const nextSlide = () => setSlide((currentSlide + 1) % slides.length);
+        const prevSlide = () => setSlide((currentSlide - 1 + slides.length) % slides.length);
+        const resetSlideInterval = () => { clearInterval(slideInterval); if(slides.length > 1) slideInterval = setInterval(nextSlide, 10000); };
+        
+        document.getElementById('heroPrevBtn')?.addEventListener('click', prevSlide);
+        document.getElementById('heroNextBtn')?.addEventListener('click', nextSlide);
+        indicators.forEach(ind => ind.addEventListener('click', function() { setSlide(parseInt(this.dataset.index)); }));
+        resetSlideInterval();
+
+        // --- Build Rows ---
+        const genRowCards = (items, showProgress = false) => {
+            return items.map(x => `
+                <div class="card">
+                    <div class="card-img" style="background-image: url('${x.i}?q=80&w=600&auto=format&fit=crop');"></div>
+                    ${showProgress ? `<div class="progress-track"><div class="progress-fill" style="width: ${Math.random()*60 + 20}%;"></div></div>` : ''}
+                    <div class="card-title">${x.t}</div>
+                    <div class="card-actions">
+                        <div class="action-circle primary play-btn" data-title="${x.t}">▶</div>
+                        <div class="action-circle add-list-btn" data-title="${x.t}" data-img="${x.i}">+</div>
+                    </div>
+                </div>
+            `).join('');
+        };
+
+        const rowsConfig = [
+            { title: "Trending in Your Universe", data: lib.slice(0,6) },
+            { title: "Because you watched Project Void", data: lib.slice(3,9) },
+            { title: "Sci-Fi Masterpieces", data: lib.slice(5,11) },
+            { title: "Continue Watching", data: lib.slice(6,10), prog: true },
+            { title: "DMJ Animation Studios", data: lib.slice(0,5).reverse() },
+            { title: "Critically Acclaimed", data: lib.slice(1,7) }
+        ];
+
+        let homeRowsHtml = '';
+        rowsConfig.forEach((row, i) => {
+            homeRowsHtml += `
+                <section class="content-section">
+                    <h2 class="section-title">${row.title}</h2>
+                    <div class="carousel-wrap">
+                        <button class="row-arrow left" onclick="document.getElementById('row-${i}').scrollBy({left:-800, behavior:'smooth'})">❮</button>
+                        <div class="row-container" id="row-${i}">${genRowCards(row.data, row.prog)}</div>
+                        <button class="row-arrow right" onclick="document.getElementById('row-${i}').scrollBy({left:800, behavior:'smooth'})">❯</button>
+                    </div>
+                </section>
+            `;
+        });
+        insertHTML('home-rows-container', homeRowsHtml);
+
+        // --- Build Grids ---
+        insertHTML('movies-grid', lib.map(x => `<div class="card" style="border-radius:0;"><div class="card-img" style="background-image: url('${x.i}?q=80&w=600&auto=format&fit=crop');"></div><div class="card-title">${x.t}</div></div>`).join(''));
+        insertHTML('animation-grid', lib.slice(2,10).map(x => `<div class="card" style="border-radius:20px;"><div class="card-img" style="background-image: url('${x.i}?q=80&w=600&auto=format&fit=crop');"></div><div class="card-title">${x.t}</div></div>`).join(''));
+        
+        const tracks = ["Energy Leaking (The Veil)", "Mythic Eerie Chords", "Post-Apocalyptic Fantasy", "AI Corruption Protocol", "Pixelated Realities", "DMJ Group Corporation Theme"];
+        insertHTML('music-tracks', tracks.map((t, i) => `
+            <div class="track play-btn" data-title="${t}">
+                <span style="${i===0?'color:var(--accent-blue)':''}"><b style="opacity:0.5; margin-right:10px;">0${i+1}</b> ${t}</span>
+                <span style="color:var(--text-silver);">3:${Math.floor(Math.random()*40+10)}</span>
+            </div>
+        `).join(''));
+
+        // --- Profiles ---
+        const profiles = [
+            {n:"Durvesh", i:"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"},
+            {n:"Sanvi", i:"https://images.unsplash.com/photo-1494790108377-be9c29b29330"},
+            {n:"Guest", i:"https://images.unsplash.com/photo-1599566150163-29194dcaad36"},
+            {n:"Kids", i:"https://images.unsplash.com/photo-1519689680058-324335c77eba", kids: true}
+        ];
+        insertHTML('profilesGrid', profiles.map(p => `
+            <div class="profile-card ${p.kids?'kids':''}" data-name="${p.n}">
+                <div class="avatar" ${p.kids?'style="border:4px solid var(--accent-green);"':''}>
+                    <img src="${p.i}?q=80&w=300&auto=format&fit=crop" ${p.kids?'style="filter:saturate(1.2);"':''}>
+                    <div class="profile-edit-overlay"><svg class="edit-icon" viewBox="0 0 24 24" style="width:30px; height:30px; stroke:white; fill:none; stroke-width:2;"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
+                    ${p.kids?'<div class="kids-badge">KIDS</div>':''}
+                </div>
+                <span class="profile-name">${p.n}</span>
+            </div>
+        `).join(''));
+
+        let isEditingProfiles = false;
+        document.getElementById('manageProfilesBtn')?.addEventListener('click', function() {
+            isEditingProfiles = !isEditingProfiles;
+            document.body.classList.toggle('editing-profiles');
+            this.innerText = isEditingProfiles ? "Done" : "Manage Profiles";
+        });
+        
+        document.getElementById('profilesGrid')?.addEventListener('click', (e) => {
+            const card = e.target.closest('.profile-card');
+            if(!card) return;
+            if(isEditingProfiles) window.showToast(`Editing ${card.dataset.name}...`);
+            else { window.showToast(`Welcome back, ${card.dataset.name}`); window.switchView('home'); }
+        });
+
+        // --- Navigation Setup ---
         window.switchView = (target) => {
             document.querySelectorAll('.view-section, .nav-link, .mobile-nav-item').forEach(el => el.classList.remove('active'));
             const viewEl = document.getElementById('view-' + target);
             if(viewEl) viewEl.classList.add('active');
             
             document.querySelectorAll(`.nav-link[data-target="${target}"], .mobile-nav-item[data-target="${target}"]`).forEach(el => el.classList.add('active'));
-            document.getElementById('searchModal')?.classList.remove('active');
+            document.getElementById('searchModal').classList.remove('active');
             window.scrollTo(0,0);
         };
 
+        document.querySelectorAll('.nav-link, .nav-trigger, .mobile-nav-item[data-target]').forEach(el => {
+            el.addEventListener('click', function(e) { e.preventDefault(); window.switchView(this.dataset.target); });
+        });
+        
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // --- My List Logic ---
         let mySavedList = [];
         window.addToMyList = (title, img) => {
             if (mySavedList.some(x => x.title === title)) { window.showToast(`"${title}" is already in My List`); return; }
@@ -645,7 +873,7 @@
             `).join('');
         };
 
-        // Player Globals
+        // --- Custom Player ---
         const playerModal = document.getElementById('videoPlayerModal');
         const mainVideo = document.getElementById('mainVideo');
         const playIcon = document.getElementById('playIcon');
@@ -666,36 +894,72 @@
             if(playerModal) { playerModal.classList.remove('active'); mainVideo.pause(); }
         };
 
+        document.getElementById('closePlayerBtn')?.addEventListener('click', window.closePlayer);
+
+        const togglePlay = () => {
+            if (mainVideo.paused) { mainVideo.play(); playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>'; } 
+            else { mainVideo.pause(); playIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>'; }
+        };
+
+        document.getElementById('playPauseBtn')?.addEventListener('click', togglePlay);
+        mainVideo?.addEventListener('click', togglePlay);
+
+        mainVideo?.addEventListener('timeupdate', () => {
+            const prog = (mainVideo.currentTime / mainVideo.duration) * 100;
+            document.getElementById('progressBar').style.width = `${prog}%`;
+            let cm = Math.floor(mainVideo.currentTime / 60) || 0;
+            let cs = Math.floor(mainVideo.currentTime % 60) || 0;
+            let tm = Math.floor(mainVideo.duration / 60) || 0;
+            let ts = Math.floor(mainVideo.duration % 60) || 0;
+            timeDisplay.innerText = `${cm}:${cs<10?'0':''}${cs} / ${tm}:${ts<10?'0':''}${ts}`;
+        });
+
+        document.getElementById('progressContainer')?.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            mainVideo.currentTime = ((e.clientX - rect.left) / rect.width) * mainVideo.duration;
+        });
+
+        document.getElementById('fullScreenBtn')?.addEventListener('click', () => {
+            if (!document.fullscreenElement) playerModal.requestFullscreen().catch(e => console.warn(e));
+            else document.exitFullscreen();
+        });
+
         window.resetHideControlsTimer = () => {
             playerModal.classList.remove('idle');
             clearTimeout(hideControlsTimeout);
             hideControlsTimeout = setTimeout(() => { if(!mainVideo.paused) playerModal.classList.add('idle'); }, 3000);
         };
+        playerModal?.addEventListener('mousemove', window.resetHideControlsTimer);
+        playerModal?.addEventListener('touchstart', window.resetHideControlsTimer);
+
+        // --- Search ---
+        const searchModal = document.getElementById('searchModal');
+        const searchInput = document.getElementById('searchInput');
+        const searchSpinner = document.getElementById('searchSpinner');
+        const searchResults = document.getElementById('searchResults');
+        const searchTags = document.getElementById('searchTags');
 
         window.toggleSearch = () => {
-            const searchModal = document.getElementById('searchModal');
-            const searchInput = document.getElementById('searchInput');
             searchModal.classList.toggle('active');
             if(searchModal.classList.contains('active')) {
-                searchInput.value = ''; 
-                document.getElementById('searchTags').style.display = 'flex'; 
-                document.getElementById('searchSpinner').style.display = 'none';
-                document.getElementById('searchResults').classList.remove('active'); 
-                document.getElementById('searchResults').innerHTML = '';
+                searchInput.value = ''; searchTags.style.display = 'flex'; searchSpinner.style.display = 'none';
+                searchResults.classList.remove('active'); searchResults.innerHTML = '';
                 setTimeout(() => searchInput.focus(), 100);
             }
         };
 
+        document.getElementById('searchBtnTop')?.addEventListener('click', window.toggleSearch);
+        document.getElementById('searchBtnBottom')?.addEventListener('click', window.toggleSearch);
+        document.getElementById('closeSearchBtn')?.addEventListener('click', window.toggleSearch);
+
         window.triggerSearch = (query) => {
             if(!query.trim()) return;
-            document.getElementById('searchInput').value = query; 
-            document.getElementById('searchTags').style.display = 'none';
-            document.getElementById('searchResults').classList.remove('active'); 
-            document.getElementById('searchSpinner').style.display = 'block';
+            searchInput.value = query; searchTags.style.display = 'none';
+            searchResults.classList.remove('active'); searchSpinner.style.display = 'block';
 
             setTimeout(() => {
-                document.getElementById('searchSpinner').style.display = 'none';
-                document.getElementById('searchResults').innerHTML = `
+                searchSpinner.style.display = 'none';
+                searchResults.innerHTML = `
                     <div class="card play-btn" data-title="${query}" style="min-width: 100%;">
                         <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop');"></div>
                         <div class="card-title">${query}</div>
@@ -705,213 +969,16 @@
                         </div>
                     </div>
                 `;
-                document.getElementById('searchResults').classList.add('active');
+                searchResults.classList.add('active');
             }, 800);
         };
 
-        // --- Initialization Execution ---
-        document.addEventListener('DOMContentLoaded', () => {
-
-            // Global click delegator for dynamic elements
-            document.body.addEventListener('click', (e) => {
-                const playBtn = e.target.closest('.play-btn, .action-circle.primary, .card, .orig-card');
-                if (playBtn && !e.target.closest('.add-list-btn, .remove-btn, .nav-trigger')) {
-                    const title = playBtn.dataset.title || playBtn.querySelector('.card-title')?.innerText || playBtn.querySelector('h3')?.innerText || "DMJ Original";
-                    window.openPlayer(title);
-                }
-                const addBtn = e.target.closest('.add-list-btn');
-                if (addBtn) { e.stopPropagation(); window.addToMyList(addBtn.dataset.title, addBtn.dataset.img); }
-                const remBtn = e.target.closest('.remove-btn');
-                if (remBtn) { e.stopPropagation(); window.removeFromMyList(remBtn.dataset.index); }
-            });
-
-            // Injection
-            const footerContent = `
-                <div class="footer-col footer-logo-col">
-                    <div class="brand-container" style="margin-bottom: 15px; cursor:default;">
-                        <svg class="brand-logo-svg" viewBox="0 0 100 100"><path d="M20,15 L45,15 C70,15 85,30 85,50 C85,70 70,85 45,85 L20,85 Z" fill="none" stroke="url(#grad1)" stroke-width="8" stroke-linecap="round"/><polygon points="40,35 60,50 40,65" fill="#00D4FF"/></svg>
-                        <div class="brand-text">DMJ<span class="text-gradient">+</span></div>
-                    </div>
-                    <p>The ultimate cinematic universe. Immersive, glassmorphic, and beautifully designed for the modern screen.</p>
-                </div>
-                <div class="footer-col"><h4>Navigation</h4><a class="nav-trigger" data-target="home">Home</a><a class="nav-trigger" data-target="movies">Movies</a><a class="nav-trigger" data-target="animation">Animation</a></div>
-                <div class="footer-col"><h4>Support</h4><a>FAQ</a><a>Help Center</a><a>Account Setup</a></div>
-                <div class="footer-col"><h4>Legal</h4><a>Privacy Policy</a><a>Terms of Service</a><a>Cookie Preferences</a></div>
-            `;
-            const footerBottom = `
-                <p>&copy; 2026 DMJ group corporation Pvt. Ltd. Developed by DMJ tech.</p>
-                <div class="footer-socials">
-                    <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                    <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2C5.12 19.5 12 19.5 12 19.5s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-                </div>
-            `;
-            window.insertHTML('footer-content', footerContent);
-            window.insertHTML('footer-bottom', footerBottom);
-            document.querySelectorAll('.footer-bottom-clone').forEach(el => el.innerHTML = footerBottom);
-
-            // Bind explicitly declared nav triggers
-            document.querySelectorAll('.nav-link, .nav-trigger, .mobile-nav-item[data-target]').forEach(el => {
-                el.addEventListener('click', function(e) { e.preventDefault(); window.switchView(this.dataset.target); });
-            });
-
-            // Hero Carousel Setup
-            const heroData = [
-                {t:"BEYOND THE HORIZON", b:"DMJ ORIGINAL FILM", d:"In a world on the edge of collapse, one memory can light the way.", i:"https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe"},
-                {t:"PROJECT VOID", b:"DMJ TECH EXCLUSIVE", d:"Enter the priority network. An expansive tech thriller.", i:"https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0"},
-                {t:"THE GIRL THE SKY KEPT", b:"DMJ ANIMATION STUDIOS", d:"A breathtaking post-apocalyptic narrative built on pixel-perfect reality.", i:"https://images.unsplash.com/photo-1536440136628-849c177e76a1"},
-                {t:"ECLIPSE", b:"NEW RELEASE", d:"When the sun vanishes, the shadows rise. A heart-pounding experience.", i:"https://images.unsplash.com/photo-1504333638930-c8787321fea0"},
-                {t:"RUST THE MECHANIC", b:"AWARD WINNING", d:"Inside the mechanics of the wasteland.", i:"https://images.unsplash.com/photo-1534447677768-be436bb09401"}
-            ];
-            
-            let heroHtml = '', indHtml = '';
-            heroData.forEach((h, i) => {
-                heroHtml += `<div class="hero-slide ${i===0?'active':''}" style="background-image: url('${h.i}?q=80&w=2500&auto=format&fit=crop');"><div class="hero-content"><span class="hero-badge">${h.b}</span><h1 class="hero-title">${h.t.replace(' ', '<br><span class="hero-subtitle">')}</span></h1><p class="hero-desc">${h.d}</p><div class="btn-group"><button class="btn btn-primary play-btn" data-title="${h.t}">▶ WATCH NOW</button><button class="btn btn-secondary add-list-btn" data-title="${h.t}" data-img="${h.i}">+ MY LIST</button></div></div></div>`;
-                indHtml += `<div class="indicator ${i===0?'active':''}" data-index="${i}"><div class="indicator-fill" style="${i===0?'width:100%':''}"></div></div>`;
-            });
-            window.insertHTML('heroSlidesContainer', heroHtml);
-            window.insertHTML('heroIndicators', indHtml);
-
-            let currentSlide = 0;
-            const slides = document.querySelectorAll('.hero-slide');
-            const indicators = document.querySelectorAll('.indicator');
-            let slideInterval;
-
-            const setSlide = (index) => {
-                if(!slides.length) return;
-                slides[currentSlide].classList.remove('active');
-                indicators[currentSlide].classList.remove('active');
-                const oldFill = indicators[currentSlide].querySelector('.indicator-fill');
-                if(oldFill) { oldFill.style.animation = 'none'; oldFill.offsetHeight; }
-                currentSlide = index;
-                slides[currentSlide].classList.add('active');
-                indicators[currentSlide].classList.add('active');
-                const newFill = indicators[currentSlide].querySelector('.indicator-fill');
-                if(newFill) newFill.style.animation = 'fillProgress 10s linear forwards';
-                resetSlideInterval();
-            };
-            const nextSlide = () => setSlide((currentSlide + 1) % slides.length);
-            const prevSlide = () => setSlide((currentSlide - 1 + slides.length) % slides.length);
-            const resetSlideInterval = () => { clearInterval(slideInterval); if(slides.length > 1) slideInterval = setInterval(nextSlide, 10000); };
-            
-            document.getElementById('heroPrevBtn')?.addEventListener('click', prevSlide);
-            document.getElementById('heroNextBtn')?.addEventListener('click', nextSlide);
-            indicators.forEach(ind => ind.addEventListener('click', function() { setSlide(parseInt(this.dataset.index)); }));
-            resetSlideInterval();
-
-            // Populate Content Rows
-            const genRowCards = (items, showProgress = false) => {
-                return items.map(x => `
-                    <div class="card play-btn" data-title="${x.t}">
-                        <div class="card-img" style="background-image: url('${x.i}?q=80&w=600&auto=format&fit=crop');"></div>
-                        ${showProgress ? `<div class="progress-track"><div class="progress-fill" style="width: ${Math.random()*60 + 20}%;"></div></div>` : ''}
-                        <div class="card-title">${x.t}</div>
-                        <div class="card-actions">
-                            <div class="action-circle primary">▶</div>
-                            <div class="action-circle add-list-btn" data-title="${x.t}" data-img="${x.i}">+</div>
-                        </div>
-                    </div>
-                `).join('');
-            };
-
-            const rowsConfig = [
-                { title: "Trending in Your Universe", data: lib.slice(0,6) },
-                { title: "Because you watched Project Void", data: lib.slice(3,9) },
-                { title: "Sci-Fi Masterpieces", data: lib.slice(5,11) },
-                { title: "Continue Watching", data: lib.slice(6,10), prog: true },
-                { title: "DMJ Animation Studios", data: lib.slice(0,5).reverse() },
-                { title: "Critically Acclaimed", data: lib.slice(1,7) }
-            ];
-
-            let homeRowsHtml = '';
-            rowsConfig.forEach((row, i) => {
-                homeRowsHtml += `
-                    <section class="content-section">
-                        <h2 class="section-title">${row.title}</h2>
-                        <div class="carousel-wrap">
-                            <button class="row-arrow left" onclick="document.getElementById('row-${i}').scrollBy({left:-800, behavior:'smooth'})">❮</button>
-                            <div class="row-container" id="row-${i}">${genRowCards(row.data, row.prog)}</div>
-                            <button class="row-arrow right" onclick="document.getElementById('row-${i}').scrollBy({left:800, behavior:'smooth'})">❯</button>
-                        </div>
-                    </section>
-                `;
-            });
-            window.insertHTML('home-rows-container', homeRowsHtml);
-
-            // Populate Grids
-            window.insertHTML('movies-grid', lib.map(x => `<div class="card play-btn" data-title="${x.t}" style="border-radius:0;"><div class="card-img" style="background-image: url('${x.i}?q=80&w=600&auto=format&fit=crop');"></div><div class="card-title">${x.t}</div></div>`).join(''));
-            window.insertHTML('animation-grid', lib.slice(2,10).map(x => `<div class="card play-btn" data-title="${x.t}" style="border-radius:20px;"><div class="card-img" style="background-image: url('${x.i}?q=80&w=600&auto=format&fit=crop');"></div><div class="card-title">${x.t}</div></div>`).join(''));
-            
-            const tracks = ["Energy Leaking (The Veil)", "Mythic Eerie Chords", "Post-Apocalyptic Fantasy", "AI Corruption Protocol", "Pixelated Realities", "DMJ Group Corporation Theme"];
-            window.insertHTML('music-tracks', tracks.map((t, i) => `
-                <div class="track play-btn" data-title="${t}">
-                    <span style="${i===0?'color:var(--accent-blue)':''}"><b style="opacity:0.5; margin-right:15px;">0${i+1}</b> ${t}</span>
-                    <span style="color:var(--text-silver);">3:${Math.floor(Math.random()*40+10)}</span>
-                </div>
-            `).join(''));
-
-            // Profile Setup
-            const profiles = [
-                {n:"Person 1", i:"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"},
-                {n:"Person 2", i:"https://images.unsplash.com/photo-1494790108377-be9c29b29330"},
-                {n:"Person 3", i:"https://images.unsplash.com/photo-1599566150163-29194dcaad36"},
-                {n:"Kids", i:"https://images.unsplash.com/photo-1519689680058-324335c77eba", kids: true}
-            ];
-            window.insertHTML('profilesGrid', profiles.map(p => `
-                <div class="profile-card ${p.kids?'kids':''}" data-name="${p.n}">
-                    <div class="avatar" ${p.kids?'style="border:4px solid var(--accent-green);"':''}>
-                        <img src="${p.i}?q=80&w=300&auto=format&fit=crop" ${p.kids?'style="filter:saturate(1.2);"':''}>
-                        <div class="profile-edit-overlay"><svg class="edit-icon" viewBox="0 0 24 24" style="width:30px; height:30px; stroke:white; fill:none; stroke-width:2;"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
-                        ${p.kids?'<div class="kids-badge">KIDS</div>':''}
-                    </div>
-                    <span class="profile-name">${p.n}</span>
-                </div>
-            `).join(''));
-
-            let isEditingProfiles = false;
-            document.getElementById('manageProfilesBtn')?.addEventListener('click', function() {
-                isEditingProfiles = !isEditingProfiles;
-                document.body.classList.toggle('editing-profiles');
-                this.innerText = isEditingProfiles ? "Done" : "Manage Profiles";
-            });
-            
-            document.getElementById('profilesGrid')?.addEventListener('click', (e) => {
-                const card = e.target.closest('.profile-card');
-                if(!card) return;
-                if(isEditingProfiles) window.showToast(`Editing ${card.dataset.name}...`);
-                else { window.showToast(`Welcome back, ${card.dataset.name}`); window.switchView('home'); }
-            });
-
-            // Navbar scroll listener
-            const navbar = document.getElementById('navbar');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) navbar.classList.add('scrolled');
-                else navbar.classList.remove('scrolled');
-            });
-
-            // Search UI
-            document.getElementById('searchBtnTop')?.addEventListener('click', window.toggleSearch);
-            document.getElementById('searchBtnBottom')?.addEventListener('click', window.toggleSearch);
-            document.getElementById('closeSearchBtn')?.addEventListener('click', window.toggleSearch);
-            
-            document.getElementById('searchInput')?.addEventListener('keypress', function(e) { if (e.key === 'Enter') window.triggerSearch(this.value); });
-            document.querySelectorAll('.search-tag').forEach(el => el.addEventListener('click', function() { window.triggerSearch(this.dataset.query); }));
-
-            // Player UI
-            const togglePlayBtn = document.getElementById('playPauseBtn');
-            togglePlayBtn?.addEventListener('click', () => {
-                if (mainVideo.paused) { mainVideo.play(); playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>'; } 
-                else { mainVideo.pause(); playIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>'; }
-            });
-            
-            document.getElementById('fullScreenBtn')?.addEventListener('click', () => {
-                if (!document.fullscreenElement) playerModal.requestFullscreen().catch(e => console.warn(e));
-                else document.exitFullscreen();
-            });
-
-            playerModal?.addEventListener('mousemove', window.resetHideControlsTimer);
-            playerModal?.addEventListener('touchstart', window.resetHideControlsTimer);
+        searchInput?.addEventListener('keypress', function(e) { if (e.key === 'Enter') window.triggerSearch(this.value); });
+        
+        document.querySelectorAll('.search-tag').forEach(el => {
+            el.addEventListener('click', function() { window.triggerSearch(this.dataset.query); });
         });
+    });
     </script>
 </body>
 </html>
