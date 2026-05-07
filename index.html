@@ -77,7 +77,7 @@
         .icon-btn svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
         .icon-btn:hover { opacity: 1; transform: scale(1.1); color: var(--accent-blue); }
 
-        /* === MOBILE BOTTOM NAVBAR (APPLE TV STYLE) === */
+        /* === MOBILE BOTTOM NAVBAR === */
         .mobile-bottom-nav {
             display: none; position: fixed; bottom: 0; left: 0; width: 100%;
             background: rgba(10, 6, 18, 0.85); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
@@ -86,7 +86,7 @@
         .mobile-nav-item {
             flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
             height: 65px; color: var(--text-silver); text-decoration: none; font-size: 10px; gap: 4px;
-            font-weight: 500; transition: var(--transition);
+            font-weight: 500; transition: var(--transition); cursor: pointer;
         }
         .mobile-nav-item svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; }
         .mobile-nav-item.active { color: var(--text-main); }
@@ -98,9 +98,9 @@
         .view-content { flex: 1 0 auto; padding-bottom: 40px; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* === MASSIVE 100VH CINEMATIC HERO SECTION === */
+        /* === MASSIVE CINEMATIC HERO SECTION === */
         #view-home .view-content { padding-top: 0; }
-        .hero { position: relative; height: 100vh; overflow: hidden; display: flex; align-items: center; }
+        .hero { position: relative; height: 85vh; overflow: hidden; display: flex; align-items: center; }
         
         .hero-slide {
             position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -109,20 +109,20 @@
         }
         .hero-slide.active { opacity: 1; z-index: 5; transform: scale(1); transition: opacity 1.2s ease, transform 12s linear; }
         
+        /* FLAWLESS FADE GRADIENT (Zero Sharp Edges) */
         .hero-overlay {
             position: absolute; inset: 0; z-index: 2; pointer-events: none;
             background: 
-                linear-gradient(to top, var(--bg-deep) 0%, var(--bg-deep) 5%, rgba(5,3,10,0.9) 15%, rgba(5,3,10,0.5) 40%, transparent 80%),
-                linear-gradient(to right, rgba(5,3,10,0.95) 0%, rgba(5,3,10,0.6) 30%, transparent 100%);
+                linear-gradient(to top, var(--bg-deep) 0%, var(--bg-deep) 8%, rgba(5,3,10,0.8) 25%, transparent 60%),
+                linear-gradient(to right, rgba(5,3,10,0.95) 0%, rgba(5,3,10,0.5) 40%, transparent 100%);
         }
 
-        .hero-content { position: relative; z-index: 10; max-width: 650px; transform: translateX(-30px); opacity: 0; transition: all 1s ease 0.4s; margin-top: 5vh; }
+        .hero-content { position: relative; z-index: 10; max-width: 650px; transform: translateX(-30px); opacity: 0; transition: all 1s ease 0.4s; margin-top: -5vh; }
         .hero-slide.active .hero-content { transform: translateX(0); opacity: 1; }
         
         .hero-badge { font-family: var(--font-cine); font-size: 14px; letter-spacing: 3px; color: var(--accent-blue); text-transform: uppercase; margin-bottom: 16px; display: block; font-weight: 800; text-shadow: 0 2px 10px rgba(0,0,0,0.9); }
-        .hero-title { font-family: var(--font-cine); font-size: 85px; line-height: 1; font-weight: 900; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 10px 40px rgba(0,0,0,0.9); }
-        .hero-subtitle { font-size: 40px; font-weight: 400; letter-spacing: 12px; display: block; margin-top: 10px; }
-        .hero-desc { font-size: 18px; color: #D1C5E0; margin-bottom: 40px; line-height: 1.6; text-shadow: 0 4px 10px rgba(0,0,0,0.9); font-weight: 400; max-width: 550px; }
+        .hero-title { font-family: var(--font-cine); font-size: 80px; line-height: 1.1; font-weight: 900; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 10px 40px rgba(0,0,0,0.9); }
+        .hero-desc { font-size: 16px; color: #D1C5E0; margin-bottom: 40px; line-height: 1.6; text-shadow: 0 4px 10px rgba(0,0,0,0.9); font-weight: 400; max-width: 550px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;}
 
         .btn-group { display: flex; gap: 16px; }
         .btn { padding: 18px 40px; border-radius: 6px; font-family: var(--font-ui); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; display: flex; align-items: center; gap: 10px; transition: var(--transition); border: none; }
@@ -136,15 +136,15 @@
         .hero-side-arrow.left { left: 2%; }
         .hero-side-arrow.right { right: 2%; }
 
-        .hero-indicators { position: absolute; bottom: 200px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 10px; }
+        .hero-indicators { position: absolute; bottom: 120px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; gap: 10px; }
         .indicator { width: 12px; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; cursor: pointer; position: relative; overflow: hidden; }
         .indicator-fill { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent-purple), var(--accent-red)); }
         .indicator.active { width: 40px; box-shadow: 0 0 10px var(--glow-red); background: rgba(255,255,255,0.1); }
         .indicator.active .indicator-fill { animation: fillProgress 10s linear forwards; }
         @keyframes fillProgress { 0% { width: 0%; } 100% { width: 100%; } }
 
-        /* === EXACT HALF-UP / HALF-DOWN CATEGORY CARDS === */
-        .content-wrapper { position: relative; z-index: 20; margin-top: -100px; }
+        /* === HALF-UP / HALF-DOWN CATEGORY CARDS === */
+        .content-wrapper { position: relative; z-index: 20; margin-top: -80px; } /* Pulls it up over the hero */
         .brand-hubs { display: flex; gap: 20px; padding: 0 4% 50px; }
         .hub-card {
             flex: 1; height: 140px; border-radius: 12px; background-color: var(--bg-card); background-size: cover; background-position: center;
@@ -165,8 +165,7 @@
         .row-arrow { position: absolute; z-index: 20; width: 50px; height: 50px; background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(255,255,255,0.2); color: white; border-radius: 50%; font-size: 24px; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; transition: var(--transition); backdrop-filter: blur(5px); }
         .carousel-wrap:hover .row-arrow { opacity: 1; }
         .row-arrow:hover { background: white; color: black; transform: scale(1.1); }
-        .row-arrow.left { left: -25px; }
-        .row-arrow.right { right: 2%; }
+        .row-arrow.left { left: -25px; } .row-arrow.right { right: 2%; }
 
         .row-container { display: flex; gap: 16px; overflow-x: auto; padding: 10px 4% 30px 0; scroll-behavior: smooth; scrollbar-width: none; width: 100%; }
         .row-container::-webkit-scrollbar { display: none; }
@@ -174,10 +173,15 @@
         .card { flex: 0 0 calc(20% - 16px); min-width: 280px; aspect-ratio: 16 / 9; border-radius: 8px; background: var(--bg-card); position: relative; cursor: pointer; overflow: hidden; transition: var(--transition); border: 1px solid transparent; }
         .card-img { width: 100%; height: 100%; background-size: cover; background-position: center; display: flex; align-items: flex-end; justify-content: center; padding: 16px; transition: transform 0.6s ease; }
         .card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 60%); pointer-events: none; transition: var(--transition); }
-        .card-title { font-family: var(--font-cine); font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--text-main); position: relative; z-index: 2; transition: var(--transition); text-shadow: 0 2px 10px rgba(0,0,0,0.9); text-align: center; }
+        
+        /* Persistent visible title gradient at bottom of card */
+        .card-title { position: absolute; bottom: 12px; left: 12px; right: 12px; font-family: var(--font-cine); font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); z-index: 2; transition: var(--transition); text-shadow: 0 2px 10px rgba(0,0,0,1); text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+        
+        /* Hover Metadata (Ratings & Year) */
+        .card-meta { position: absolute; top: 10px; left: 12px; right: 12px; z-index: 5; display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; opacity: 0; transition: var(--transition); transform: translateY(-10px); text-shadow: 0 2px 4px rgba(0,0,0,0.9); pointer-events: none; }
         
         .card:hover { transform: scale(1.05); border-color: rgba(255,255,255,0.2); box-shadow: 0 20px 40px rgba(0,0,0,0.8); z-index: 10; }
-        .card:hover .card-img { transform: scale(1.08); }
+        .card:hover .card-img { transform: scale(1.08); filter: brightness(0.5); }
         .card:hover::after { background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 100%); }
         
         .card-actions { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8); z-index: 5; opacity: 0; transition: var(--transition); display: flex; gap: 12px; }
@@ -187,6 +191,7 @@
         .action-circle.primary:hover { background: var(--accent-purple); color: white; }
 
         .card:hover .card-title { opacity: 0; transform: translateY(10px); }
+        .card:hover .card-meta { opacity: 1; transform: translateY(0); }
         .card:hover .card-actions { opacity: 1; transform: translate(-50%, -50%) scale(1); }
         .progress-track { position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: rgba(255,255,255,0.2); z-index: 5; pointer-events: none; }
         .progress-fill { height: 100%; background: var(--accent-red); }
@@ -225,7 +230,7 @@
 
         .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 20px 4% 60px; }
 
-        /* === IMPROVED PROFILE SECTION (WITH KIDS PROFILE) === */
+        /* === IMPROVED PROFILE SECTION === */
         #view-profile .view-content { padding-top: 160px; text-align: center; }
         #view-profile h1 { font-family: var(--font-cine); font-size: 48px; font-weight: 900; margin-bottom: 60px; letter-spacing: 1px;}
         .profiles-grid { display: flex; justify-content: center; gap: 40px; margin-bottom: 80px; flex-wrap: wrap; }
@@ -267,10 +272,10 @@
         .search-results { display: none; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; margin-top: 20px; width: 100%; padding-bottom: 50px; }
         .search-results.active { display: grid; }
         
-        /* === UNIQUE CUSTOM VIDEO PLAYER === */
+        /* === CUSTOM VIDEO PLAYER === */
         .player-modal { position: fixed; inset: 0; background: black; z-index: 4000; display: flex; flex-direction: column; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
         .player-modal.active { opacity: 1; pointer-events: all; }
-        .custom-player-wrapper { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: #000; overflow: hidden; }
+        .custom-player-wrapper { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: #000; }
         .custom-player-wrapper video { width: 100%; max-height: 100vh; outline: none; }
         
         .player-watermark { position: absolute; top: 40px; right: 40px; font-family: var(--font-cine); font-size: 16px; font-weight: 800; letter-spacing: 4px; color: rgba(255,255,255,0.4); z-index: 3010; pointer-events: none; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
@@ -297,7 +302,7 @@
         .toast { background: rgba(20, 10, 30, 0.95); backdrop-filter: blur(10px); color: white; padding: 14px 28px; border-radius: 30px; font-family: var(--font-ui); font-size: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); display: flex; align-items: center; gap: 12px; border: 1px solid rgba(138, 43, 226, 0.4); font-weight: 500;}
 
         /* === PREMIUM STANDARD FOOTER === */
-        .site-footer { flex-shrink: 0; background: var(--bg-deep); border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 4% 40px; margin-top: auto; }
+        .site-footer { flex-shrink: 0; background: var(--bg-deep); border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 4% 40px; margin-top: auto; width: 100%;}
         .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
         .footer-logo-col p { color: var(--text-silver); font-size: 14px; margin-top: 15px; line-height: 1.6; max-width: 300px;}
         .footer-col h4 { font-family: var(--font-cine); color: white; font-size: 16px; margin-bottom: 20px; letter-spacing: 1px;}
@@ -310,78 +315,67 @@
 
         /* === MOBILE RESPONSIVENESS OVERRIDES === */
         @media (max-width: 768px) {
-            /* Hide Desktop Nav Elements */
             .nav-links, .nav-right { display: none; }
             nav { height: 60px; padding: 0 20px; }
             nav.scrolled { height: 60px; }
             
-            /* Show Mobile Bottom Nav */
             .mobile-bottom-nav { display: flex; }
             .view-section { padding-bottom: 80px; } 
             
-            /* Fix Hero Section for Mobile */
             .hero { height: 85vh; }
-            .hero-slide { align-items: center; padding-bottom: 0; }
-            .hero-content { margin-top: 0; transform: translateX(0) !important; text-align: center; display: flex; flex-direction: column; align-items: center; }
+            .hero-slide { align-items: center; padding-top: 5vh; }
+            .hero-content { margin-top: 0; transform: translateX(0) !important; text-align: center; display: flex; flex-direction: column; align-items: center; width: 100%;}
             .hero-slide.active .hero-content { transform: translateX(0) !important; }
             
-            /* Typography Scaling */
-            .hero-title { font-size: 45px; }
-            .hero-subtitle { font-size: 20px; letter-spacing: 6px; }
+            .hero-title { font-size: 40px; margin-bottom: 15px;}
+            .hero-subtitle { font-size: 18px; letter-spacing: 6px; }
             .hero-desc { display: none; } 
             
-            /* Button Adjustments */
             .btn-group { flex-direction: column; width: 100%; gap: 12px; }
-            .btn { width: 100%; justify-content: center; }
+            .btn { width: 100%; justify-content: center; padding: 14px 20px;}
             
-            /* Hide Desktop Controls */
             .hero-indicators { bottom: 30px; }
             .hero-side-arrow { display: none; }
             
-            /* Fix Category Cards (Half-up/Half-down) on Mobile */
             .content-wrapper { margin-top: -30px; }
             .brand-hubs { padding: 0 20px 30px; margin-top: 0; gap: 15px; overflow-x: auto; flex-wrap: nowrap; }
-            .hub-card { flex: 0 0 calc(60% - 10px); height: 100px; }
-            .hub-text { font-size: 16px; letter-spacing: 2px; }
+            .hub-card { flex: 0 0 calc(55% - 10px); height: 90px; }
+            .hub-text { font-size: 14px; letter-spacing: 2px; }
             
-            /* Fix Grid Layouts */
             .content-section { padding: 0 0 40px 20px; }
-            .card { flex: 0 0 calc(75% - 16px); min-width: unset; }
+            .card { flex: 0 0 calc(70% - 16px); min-width: unset; }
             .row-arrow { display: none; } 
-            .grid-container { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); padding: 20px 20px 100px; gap: 15px;}
+            .grid-container { grid-template-columns: repeat(2, 1fr); padding: 20px 20px 100px; gap: 15px;}
             
-            /* Fix Sub-page Headers */
-            .page-hero h1, #view-movies h1, #view-animation h1, #view-music h1, #view-studios h1 { font-size: 36px !important; line-height: 1.2;}
+            .page-hero h1, #view-movies h1, #view-animation h1, #view-music h1, #view-studios h1 { font-size: 32px !important; line-height: 1.2;}
             #view-music .page-hero { flex-direction: column; padding-top: 100px; text-align: center; gap: 20px;}
             #view-music .music-art { flex: 0 0 200px; width: 200px; height: 200px;}
             .studio-grid { grid-template-columns: 1fr; }
             
-            /* Fix About Us */
             .about-us-box { padding: 30px; margin: 0 20px; }
             .about-us-box h1 { font-size: 32px; }
             .corp-branding { flex-direction: column; gap: 10px; align-items: flex-start; }
 
-            /* Fix Profile Section */
             .profiles-grid { gap: 20px; }
             .avatar { width: 100px; height: 100px; }
             #view-profile h1 { font-size: 32px; margin-bottom: 30px; }
             .profile-name { font-size: 16px; }
 
-            /* Fix Footer */
             .footer-content { grid-template-columns: 1fr 1fr; }
             .footer-logo-col { grid-column: 1 / -1; }
             .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
             .site-footer { padding-bottom: 100px; } 
 
-            /* Fix Search */
+            .search-overlay { padding-top: 5vh; }
             .search-input { font-size: 28px; padding-left: 40px; }
             .search-icon-inside { width: 24px; height: 24px; }
+            .close-search { top: 20px; right: 20px; font-size: 40px; }
+            #searchResults { grid-template-columns: 1fr; } 
         }
     </style>
 </head>
 <body>
 
-    <!-- TOAST NOTIFICATION -->
     <div class="toast-container" id="toastBox">
         <div class="toast">
             <svg viewBox="0 0 24 24" style="width:18px; height:18px; stroke:var(--accent-blue); fill:none; stroke-width:2;"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -389,7 +383,6 @@
         </div>
     </div>
 
-    <!-- CUSTOM VIDEO PLAYER MODAL -->
     <div class="player-modal" id="videoPlayerModal">
         <div class="custom-player-wrapper" id="playerWrapper">
             <video id="mainVideo" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" playsinline></video>
@@ -410,10 +403,9 @@
         </div>
     </div>
 
-    <!-- DESKTOP NAVBAR -->
     <nav id="navbar">
         <div class="nav-left">
-            <div class="brand-container" onclick="window.switchView('home')">
+            <div class="brand-container nav-trigger" data-target="home">
                 <svg class="brand-logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -427,51 +419,49 @@
                 <div class="brand-text">DMJ<span class="text-gradient">+</span></div>
             </div>
             <div class="nav-links">
-                <button class="nav-link active" data-target="home">HOME</button>
-                <button class="nav-link" data-target="movies">MOVIES</button>
-                <button class="nav-link" data-target="animation">ANIMATION</button>
-                <button class="nav-link" data-target="music">MUSIC</button>
-                <button class="nav-link" data-target="studios">STUDIOS</button>
-                <button class="nav-link" data-target="about">ABOUT US</button>
+                <button class="nav-link active nav-trigger" data-target="home">HOME</button>
+                <button class="nav-link nav-trigger" data-target="movies">MOVIES</button>
+                <button class="nav-link nav-trigger" data-target="animation">ANIMATION</button>
+                <button class="nav-link nav-trigger" data-target="music">MUSIC</button>
+                <button class="nav-link nav-trigger" data-target="studios">STUDIOS</button>
+                <button class="nav-link nav-trigger" data-target="about">ABOUT US</button>
             </div>
         </div>
         <div class="nav-right">
             <button class="icon-btn" id="searchBtnTop" title="Search">
                 <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </button>
-            <button class="icon-btn profile-btn" onclick="window.switchView('profile')" title="Profile">
+            <button class="icon-btn profile-btn nav-trigger" data-target="profile" title="Profile">
                 <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </button>
         </div>
     </nav>
 
-    <!-- MOBILE BOTTOM NAVBAR -->
     <div class="mobile-bottom-nav">
-        <a href="#" class="mobile-nav-item active" data-target="home">
+        <a class="mobile-nav-item active nav-trigger" data-target="home">
             <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
             Home
         </a>
-        <a href="#" class="mobile-nav-item" id="searchBtnBottom">
+        <a class="mobile-nav-item" id="searchBtnBottom">
             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             Search
         </a>
-        <a href="#" class="mobile-nav-item" data-target="mylist">
+        <a class="mobile-nav-item nav-trigger" data-target="mylist">
             <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
             Library
         </a>
-        <a href="#" class="mobile-nav-item" data-target="profile">
+        <a class="mobile-nav-item nav-trigger" data-target="profile">
             <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             Profile
         </a>
     </div>
 
-    <!-- SEARCH OVERLAY -->
     <div class="search-overlay" id="searchModal">
         <div class="close-search" id="closeSearchBtn">×</div>
         <div class="search-container">
             <div class="search-input-wrapper">
                 <svg class="search-icon-inside" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <input type="text" class="search-input" id="searchInput" placeholder="Search the DMJ Universe..." autofocus>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search the DMJ Universe..." autocomplete="off">
             </div>
             <div class="search-tags-section" id="searchTags">
                 <span class="search-tags-title">Popular Searches</span>
@@ -487,7 +477,6 @@
         </div>
     </div>
 
-    <!-- ==================== HOME VIEW ==================== -->
     <div id="view-home" class="view-section active">
         <div class="view-content">
             <header class="hero" id="heroCarousel">
@@ -499,20 +488,13 @@
             </header>
 
             <div class="content-wrapper">
-                <section class="brand-hubs">
-                    <div class="hub-card nav-trigger" data-target="movies" style="background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=400&auto=format&fit=crop');"><span class="hub-text">ACTION</span></div>
-                    <div class="hub-card nav-trigger" data-target="movies" style="background-image: url('https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?q=80&w=400&auto=format&fit=crop');"><span class="hub-text">SCI-FI</span></div>
-                    <div class="hub-card nav-trigger" data-target="movies" style="background-image: url('https://images.unsplash.com/photo-1504333638930-c8787321fea0?q=80&w=400&auto=format&fit=crop');"><span class="hub-text">HORROR</span></div>
-                    <div class="hub-card nav-trigger" data-target="movies" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=400&auto=format&fit=crop');"><span class="hub-text">THRILLER</span></div>
-                    <div class="hub-card nav-trigger" data-target="movies" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=400&auto=format&fit=crop');"><span class="hub-text">COMEDY</span></div>
-                </section>
+                <section class="brand-hubs" id="brand-hubs-container"></section>
                 <div id="home-rows-container"></div>
             </div>
         </div>
-        <footer class="site-footer"><div class="footer-content" id="footer-content"></div><div class="footer-bottom" id="footer-bottom"></div></footer>
+        <footer class="site-footer"><div class="footer-content footer-content-clone"></div><div class="footer-bottom footer-bottom-clone"></div></footer>
     </div>
 
-    <!-- ==================== MOVIES VIEW ==================== -->
     <div id="view-movies" class="view-section">
         <div class="view-content">
             <div class="page-hero">
@@ -523,10 +505,9 @@
             </div>
             <div class="grid-container" id="movies-grid"></div>
         </div>
-        <footer class="site-footer"><div class="footer-bottom footer-bottom-clone"></div></footer>
+        <footer class="site-footer"><div class="footer-content footer-content-clone"></div><div class="footer-bottom footer-bottom-clone"></div></footer>
     </div>
 
-    <!-- ==================== ANIMATION VIEW ==================== -->
     <div id="view-animation" class="view-section">
         <div class="view-content">
             <div class="page-hero">
@@ -537,10 +518,9 @@
             </div>
             <div class="grid-container" id="animation-grid"></div>
         </div>
-        <footer class="site-footer"><div class="footer-bottom footer-bottom-clone"></div></footer>
+        <footer class="site-footer"><div class="footer-content footer-content-clone"></div><div class="footer-bottom footer-bottom-clone"></div></footer>
     </div>
 
-    <!-- ==================== MUSIC VIEW ==================== -->
     <div id="view-music" class="view-section">
         <div class="view-content">
             <div class="page-hero">
@@ -553,10 +533,9 @@
             </div>
             <div style="padding: 0 4%; max-width: 900px;" id="music-tracks"></div>
         </div>
-        <footer class="site-footer"><div class="footer-bottom footer-bottom-clone"></div></footer>
+        <footer class="site-footer"><div class="footer-content footer-content-clone"></div><div class="footer-bottom footer-bottom-clone"></div></footer>
     </div>
 
-    <!-- ==================== STUDIOS VIEW ==================== -->
     <div id="view-studios" class="view-section">
         <div class="view-content">
             <div class="page-hero">
@@ -569,10 +548,9 @@
                 <div class="studio-card" style="background-image: url('https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?q=80&w=600');"><span>DMJ ANIMATION</span></div>
             </div>
         </div>
-        <footer class="site-footer"><div class="footer-bottom footer-bottom-clone"></div></footer>
+        <footer class="site-footer"><div class="footer-content footer-content-clone"></div><div class="footer-bottom footer-bottom-clone"></div></footer>
     </div>
 
-    <!-- ==================== ABOUT US VIEW ==================== -->
     <div id="view-about" class="view-section">
         <div class="view-content">
             <div class="about-us-box">
@@ -585,10 +563,9 @@
                 </div>
             </div>
         </div>
-        <footer class="site-footer"><div class="footer-bottom footer-bottom-clone"></div></footer>
+        <footer class="site-footer"><div class="footer-content footer-content-clone"></div><div class="footer-bottom footer-bottom-clone"></div></footer>
     </div>
 
-    <!-- ==================== MY LIST VIEW ==================== -->
     <div id="view-mylist" class="view-section">
         <div class="view-content">
             <div style="text-align: center; padding-top: 120px; margin-bottom: 40px;">
@@ -599,40 +576,30 @@
                 <div class="empty-state">Your list is currently empty. Explore the universe and add some titles!</div>
             </div>
         </div>
-        <footer class="site-footer"><div class="footer-bottom footer-bottom-clone"></div></footer>
+        <footer class="site-footer"><div class="footer-content footer-content-clone"></div><div class="footer-bottom footer-bottom-clone"></div></footer>
     </div>
 
-    <!-- ==================== PROFILE VIEW ==================== -->
     <div id="view-profile" class="view-section">
         <div class="view-content" style="display:flex; flex-direction:column; align-items:center;">
             <h1>Who's Watching?</h1>
             <div class="profiles-grid" id="profilesGrid"></div>
             <button class="manage-profiles-btn" id="manageProfilesBtn">Manage Profiles</button>
         </div>
-        <footer class="site-footer" style="width: 100%;"><div class="footer-bottom footer-bottom-clone"></div></footer>
+        <footer class="site-footer" style="width: 100%;"><div class="footer-content footer-content-clone"></div><div class="footer-bottom footer-bottom-clone"></div></footer>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-        // --- Data Library ---
-        const lib = [
-            {t: "ECLIPSE", i: "https://images.unsplash.com/photo-1504333638930-c8787321fea0"},
-            {t: "THE CURSED MUSIC BOX", i: "https://images.unsplash.com/photo-1550745165-9bc0b252726f"},
-            {t: "LOST ECHOES", i: "https://images.unsplash.com/photo-1534447677768-be436bb09401"},
-            {t: "EMBER", i: "https://images.unsplash.com/photo-1614729939124-032f0b56c9ce"},
-            {t: "THE LAST SIGNAL", i: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23"},
-            {t: "LUNA", i: "https://images.unsplash.com/photo-1605806616949-1e87b487cb2a"},
-            {t: "RUST: THE MECHANIC", i: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e"},
-            {t: "NEON SHADOWS", i: "https://images.unsplash.com/photo-1536440136628-849c177e76a1"},
-            {t: "AI CORRUPTION", i: "https://images.unsplash.com/photo-1451187580459-43490279c0fa"},
-            {t: "ORBITAL DECAY", i: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564"},
-            {t: "THE VEIL", i: "https://images.unsplash.com/photo-1614729939124-032f0b56c9ce"}
-        ];
+        // --- API CONFIGURATION ---
+        const API_KEY = '970cbe6fa487dfbcbf2ca66cd86325ca'; // Your TMDB Key
+        const BASE_URL = 'https://api.themoviedb.org/3';
+        const IMG_ORIGINAL = 'https://image.tmdb.org/t/p/original';
+        const IMG_W780 = 'https://image.tmdb.org/t/p/w780';
 
+        // --- Utilities ---
         const insertHTML = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
-
+        
         let toastTimeout;
         window.showToast = (message) => {
             const toast = document.getElementById('toastBox');
@@ -645,260 +612,211 @@
             }
         };
 
-        // --- Global Delegator ---
-        document.body.addEventListener('click', (e) => {
-            const playBtn = e.target.closest('.play-btn, .action-circle.primary, .card, .orig-card');
-            if (playBtn && !e.target.closest('.add-list-btn, .remove-btn, .nav-trigger')) {
-                const title = playBtn.dataset.title || playBtn.querySelector('.card-title')?.innerText || playBtn.querySelector('h3')?.innerText || "DMJ Original";
-                window.openPlayer(title);
+        // --- Fetch Helper ---
+        async function fetchAPI(endpoint) {
+            try {
+                const response = await fetch(`${BASE_URL}${endpoint}${endpoint.includes('?') ? '&' : '?'}api_key=${API_KEY}`);
+                if (!response.ok) throw new Error('API Error');
+                return await response.json();
+            } catch (error) {
+                console.error('Fetch Error:', error);
+                return { results: [] };
             }
-            const addBtn = e.target.closest('.add-list-btn');
-            if (addBtn) { e.stopPropagation(); window.addToMyList(addBtn.dataset.title, addBtn.dataset.img); }
-            const remBtn = e.target.closest('.remove-btn');
-            if (remBtn) { e.stopPropagation(); window.removeFromMyList(remBtn.dataset.index); }
-        });
+        }
 
-        // --- Footer Injection ---
-        const footerContent = `
-            <div class="footer-col footer-logo-col">
-                <div class="brand-container" style="margin-bottom: 15px; cursor:default;">
-                    <svg class="brand-logo-svg" viewBox="0 0 100 100"><path d="M20,15 L45,15 C70,15 85,30 85,50 C85,70 70,85 45,85 L20,85 Z" fill="none" stroke="url(#grad1)" stroke-width="8" stroke-linecap="round"/><polygon points="40,35 60,50 40,65" fill="#00D4FF"/></svg>
-                    <div class="brand-text">DMJ<span class="text-gradient">+</span></div>
-                </div>
-                <p>The ultimate cinematic universe. Immersive, glassmorphic, and beautifully designed for the modern screen.</p>
-            </div>
-            <div class="footer-col"><h4>Navigation</h4><a class="nav-trigger" data-target="home">Home</a><a class="nav-trigger" data-target="movies">Movies</a><a class="nav-trigger" data-target="animation">Animation</a></div>
-            <div class="footer-col"><h4>Support</h4><a>FAQ</a><a>Help Center</a><a>Account Setup</a></div>
-            <div class="footer-col"><h4>Legal</h4><a>Privacy Policy</a><a>Terms of Service</a><a>Cookie Preferences</a></div>
-        `;
-        const footerBottom = `
-            <p>&copy; 2026 DMJ group corporation Pvt. Ltd. Developed by DMJ tech.</p>
-            <div class="footer-socials">
-                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2C5.12 19.5 12 19.5 12 19.5s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-            </div>
-        `;
-        insertHTML('footer-content', footerContent);
-        insertHTML('footer-bottom', footerBottom);
-        document.querySelectorAll('.footer-bottom-clone').forEach(el => el.innerHTML = footerBottom);
-
-        // --- Build Hero Carousel ---
-        const heroData = [
-            {t:"BEYOND THE HORIZON", b:"DMJ ORIGINAL FILM", d:"In a world on the edge of collapse, one memory can light the way.", i:"https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe"},
-            {t:"PROJECT VOID", b:"DMJ TECH EXCLUSIVE", d:"Enter the priority network. An expansive tech thriller.", i:"https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0"},
-            {t:"THE GIRL THE SKY KEPT", b:"DMJ ANIMATION STUDIOS", d:"A breathtaking post-apocalyptic narrative built on pixel-perfect reality.", i:"https://images.unsplash.com/photo-1536440136628-849c177e76a1"},
-            {t:"ECLIPSE", b:"NEW RELEASE", d:"When the sun vanishes, the shadows rise. A heart-pounding experience.", i:"https://images.unsplash.com/photo-1504333638930-c8787321fea0"},
-            {t:"RUST THE MECHANIC", b:"AWARD WINNING", d:"Inside the mechanics of the wasteland.", i:"https://images.unsplash.com/photo-1534447677768-be436bb09401"}
-        ];
-        
-        let heroHtml = '', indHtml = '';
-        heroData.forEach((h, i) => {
-            heroHtml += `
-                <div class="hero-slide ${i===0?'active':''}" style="background-image: url('${h.i}?q=80&w=2500&auto=format&fit=crop');">
-                    <div class="hero-content">
-                        <span class="hero-badge">${h.b}</span>
-                        <h1 class="hero-title">${h.t.replace(' ', '<br><span class="hero-subtitle">')}</span></h1>
-                        <p class="hero-desc">${h.d}</p>
-                        <div class="btn-group">
-                            <button class="btn btn-primary play-btn" data-title="${h.t}">▶ WATCH NOW</button>
-                            <button class="btn btn-secondary add-list-btn" data-title="${h.t}" data-img="${h.i}">+ MY LIST</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            indHtml += `<div class="indicator ${i===0?'active':''}" data-index="${i}"><div class="indicator-fill" style="${i===0?'width:100%':''}"></div></div>`;
-        });
-        insertHTML('heroSlidesContainer', heroHtml);
-        insertHTML('heroIndicators', indHtml);
-
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.hero-slide');
-        const indicators = document.querySelectorAll('.indicator');
-        let slideInterval;
-
-        const setSlide = (index) => {
-            if(!slides.length) return;
-            slides[currentSlide].classList.remove('active');
-            indicators[currentSlide].classList.remove('active');
-            const oldFill = indicators[currentSlide].querySelector('.indicator-fill');
-            if(oldFill) { oldFill.style.animation = 'none'; oldFill.offsetHeight; }
-            currentSlide = index;
-            slides[currentSlide].classList.add('active');
-            indicators[currentSlide].classList.add('active');
-            const newFill = indicators[currentSlide].querySelector('.indicator-fill');
-            if(newFill) newFill.style.animation = 'fillProgress 10s linear forwards';
-            resetSlideInterval();
-        };
-        const nextSlide = () => setSlide((currentSlide + 1) % slides.length);
-        const prevSlide = () => setSlide((currentSlide - 1 + slides.length) % slides.length);
-        const resetSlideInterval = () => { clearInterval(slideInterval); if(slides.length > 1) slideInterval = setInterval(nextSlide, 10000); };
-        
-        document.getElementById('heroPrevBtn')?.addEventListener('click', prevSlide);
-        document.getElementById('heroNextBtn')?.addEventListener('click', nextSlide);
-        indicators.forEach(ind => ind.addEventListener('click', function() { setSlide(parseInt(this.dataset.index)); }));
-        resetSlideInterval();
-
-        // --- Build Rows ---
-        const genRowCards = (items, showProgress = false) => {
-            return items.map(x => `
-                <div class="card">
-                    <div class="card-img" style="background-image: url('${x.i}?q=80&w=600&auto=format&fit=crop');"></div>
-                    ${showProgress ? `<div class="progress-track"><div class="progress-fill" style="width: ${Math.random()*60 + 20}%;"></div></div>` : ''}
-                    <div class="card-title">${x.t}</div>
-                    <div class="card-actions">
-                        <div class="action-circle primary play-btn" data-title="${x.t}">▶</div>
-                        <div class="action-circle add-list-btn" data-title="${x.t}" data-img="${x.i}">+</div>
-                    </div>
-                </div>
-            `).join('');
-        };
-
-        const rowsConfig = [
-            { title: "Trending in Your Universe", data: lib.slice(0,6) },
-            { title: "Because you watched Project Void", data: lib.slice(3,9) },
-            { title: "Sci-Fi Masterpieces", data: lib.slice(5,11) },
-            { title: "Continue Watching", data: lib.slice(6,10), prog: true },
-            { title: "DMJ Animation Studios", data: lib.slice(0,5).reverse() },
-            { title: "Critically Acclaimed", data: lib.slice(1,7) }
-        ];
-
-        let homeRowsHtml = '';
-        rowsConfig.forEach((row, i) => {
-            homeRowsHtml += `
-                <section class="content-section">
-                    <h2 class="section-title">${row.title}</h2>
-                    <div class="carousel-wrap">
-                        <button class="row-arrow left" onclick="document.getElementById('row-${i}').scrollBy({left:-800, behavior:'smooth'})">❮</button>
-                        <div class="row-container" id="row-${i}">${genRowCards(row.data, row.prog)}</div>
-                        <button class="row-arrow right" onclick="document.getElementById('row-${i}').scrollBy({left:800, behavior:'smooth'})">❯</button>
-                    </div>
-                </section>
-            `;
-        });
-        insertHTML('home-rows-container', homeRowsHtml);
-
-        // --- Build Grids ---
-        insertHTML('movies-grid', lib.map(x => `<div class="card" style="border-radius:0;"><div class="card-img" style="background-image: url('${x.i}?q=80&w=600&auto=format&fit=crop');"></div><div class="card-title">${x.t}</div></div>`).join(''));
-        insertHTML('animation-grid', lib.slice(2,10).map(x => `<div class="card" style="border-radius:20px;"><div class="card-img" style="background-image: url('${x.i}?q=80&w=600&auto=format&fit=crop');"></div><div class="card-title">${x.t}</div></div>`).join(''));
-        
-        const tracks = ["Energy Leaking (The Veil)", "Mythic Eerie Chords", "Post-Apocalyptic Fantasy", "AI Corruption Protocol", "Pixelated Realities", "DMJ Group Corporation Theme"];
-        insertHTML('music-tracks', tracks.map((t, i) => `
-            <div class="track play-btn" data-title="${t}">
-                <span style="${i===0?'color:var(--accent-blue)':''}"><b style="opacity:0.5; margin-right:10px;">0${i+1}</b> ${t}</span>
-                <span style="color:var(--text-silver);">3:${Math.floor(Math.random()*40+10)}</span>
-            </div>
-        `).join(''));
-
-        // --- Profiles ---
-        const profiles = [
-            {n:"Durvesh", i:"https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"},
-            {n:"Sanvi", i:"https://images.unsplash.com/photo-1494790108377-be9c29b29330"},
-            {n:"Guest", i:"https://images.unsplash.com/photo-1599566150163-29194dcaad36"},
-            {n:"Kids", i:"https://images.unsplash.com/photo-1519689680058-324335c77eba", kids: true}
-        ];
-        insertHTML('profilesGrid', profiles.map(p => `
-            <div class="profile-card ${p.kids?'kids':''}" data-name="${p.n}">
-                <div class="avatar" ${p.kids?'style="border:4px solid var(--accent-green);"':''}>
-                    <img src="${p.i}?q=80&w=300&auto=format&fit=crop" ${p.kids?'style="filter:saturate(1.2);"':''}>
-                    <div class="profile-edit-overlay"><svg class="edit-icon" viewBox="0 0 24 24" style="width:30px; height:30px; stroke:white; fill:none; stroke-width:2;"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div>
-                    ${p.kids?'<div class="kids-badge">KIDS</div>':''}
-                </div>
-                <span class="profile-name">${p.n}</span>
-            </div>
-        `).join(''));
-
-        let isEditingProfiles = false;
-        document.getElementById('manageProfilesBtn')?.addEventListener('click', function() {
-            isEditingProfiles = !isEditingProfiles;
-            document.body.classList.toggle('editing-profiles');
-            this.innerText = isEditingProfiles ? "Done" : "Manage Profiles";
-        });
-        
-        document.getElementById('profilesGrid')?.addEventListener('click', (e) => {
-            const card = e.target.closest('.profile-card');
-            if(!card) return;
-            if(isEditingProfiles) window.showToast(`Editing ${card.dataset.name}...`);
-            else { window.showToast(`Welcome back, ${card.dataset.name}`); window.switchView('home'); }
-        });
-
-        // --- Navigation Setup ---
-        window.switchView = (target) => {
-            document.querySelectorAll('.view-section, .nav-link, .mobile-nav-item').forEach(el => el.classList.remove('active'));
-            const viewEl = document.getElementById('view-' + target);
-            if(viewEl) viewEl.classList.add('active');
+        // --- Card Generator with Hover Metadata ---
+        const genCardHTML = (movie, isProgress = false) => {
+            if(!movie.backdrop_path) return ''; 
+            const imgUrl = `${IMG_W780}${movie.backdrop_path}`;
+            const title = movie.title || movie.name || "Unknown";
+            const safeTitle = title.replace(/'/g, "\\'"); 
             
-            document.querySelectorAll(`.nav-link[data-target="${target}"], .mobile-nav-item[data-target="${target}"]`).forEach(el => el.classList.add('active'));
-            document.getElementById('searchModal').classList.remove('active');
-            window.scrollTo(0,0);
-        };
+            // Format Metadata
+            const rating = movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A';
+            const year = movie.release_date ? movie.release_date.split('-')[0] : (movie.first_air_date ? movie.first_air_date.split('-')[0] : '');
+            
+            return `
+                <div class="card play-btn" data-title="${safeTitle}">
+                    <div class="card-img" style="background-image: url('${imgUrl}');"></div>
+                    ${isProgress ? `<div class="progress-track"><div class="progress-fill" style="width: ${Math.random()*60 + 20}%;"></div></div>` : ''}
+                    
+                    <div class="card-meta">
+                        <span style="color: var(--accent-gold);">★ ${rating}</span>
+                        <span>${year}</span>
+                    </div>
 
-        document.querySelectorAll('.nav-link, .nav-trigger, .mobile-nav-item[data-target]').forEach(el => {
-            el.addEventListener('click', function(e) { e.preventDefault(); window.switchView(this.dataset.target); });
-        });
-        
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
-        });
-
-        // --- My List Logic ---
-        let mySavedList = [];
-        window.addToMyList = (title, img) => {
-            if (mySavedList.some(x => x.title === title)) { window.showToast(`"${title}" is already in My List`); return; }
-            mySavedList.push({ title: title, img: img || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe" });
-            window.showToast(`Added "${title}" to My List`);
-            window.renderMyList();
-        };
-
-        window.removeFromMyList = (index) => {
-            let removedTitle = mySavedList[index].title;
-            mySavedList.splice(index, 1);
-            window.showToast(`Removed "${removedTitle}"`);
-            window.renderMyList();
-        };
-
-        window.renderMyList = () => {
-            const grid = document.getElementById('myListGrid');
-            if(!grid) return;
-            if (mySavedList.length === 0) { grid.innerHTML = '<div class="empty-state">Your list is currently empty. Explore the universe and add some titles!</div>'; return; }
-            grid.innerHTML = mySavedList.map((x, i) => `
-                <div class="orig-card play-btn" data-title="${x.title}">
-                    <div class="orig-card-bg" style="background-image: url('${x.img}?q=80&w=600&auto=format&fit=crop');"></div>
-                    <div class="orig-play-btn">▶</div>
-                    <div class="orig-info"><h3>${x.title}</h3></div>
-                    <button class="remove-btn" data-index="${i}" style="position:absolute; top:10px; right:10px; z-index:10; background:rgba(0,0,0,0.7); color:white; border:1px solid rgba(255,255,255,0.3); border-radius:50%; width:35px; height:35px; cursor:pointer; font-size:18px;">×</button>
+                    <div class="card-title">${title}</div>
+                    
+                    <div class="card-actions">
+                        <div class="action-circle primary">▶</div>
+                        <div class="action-circle add-list-btn" data-title="${safeTitle}" data-img="${imgUrl}">+</div>
+                    </div>
                 </div>
-            `).join('');
+            `;
         };
 
-        // --- Custom Player ---
+        // --- Initialize App & Fetch Data ---
+        async function initApp() {
+            // 1. Fetch Trending (For Hero & Row 1)
+            const trendingData = await fetchAPI('/trending/movie/week');
+            const trendingMovies = trendingData.results.filter(m => m.backdrop_path);
+            
+            // Generate Hero (Top 5 Trending)
+            if(trendingMovies.length >= 5) {
+                let heroHtml = '', indHtml = '';
+                for(let i=0; i<5; i++) {
+                    const m = trendingMovies[i];
+                    const imgUrl = `${IMG_ORIGINAL}${m.backdrop_path}`;
+                    const title = m.title || m.name;
+                    const safeTitle = title.replace(/'/g, "\\'");
+                    const desc = m.overview.length > 150 ? m.overview.substring(0, 150) + "..." : m.overview;
+                    
+                    heroHtml += `
+                        <div class="hero-slide ${i===0?'active':''}" style="background-image: url('${imgUrl}');">
+                            <div class="hero-content">
+                                <span class="hero-badge">DMJ+ PREMIERE</span>
+                                <h1 class="hero-title">${title}</h1>
+                                <p class="hero-desc">${desc}</p>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary play-btn" data-title="${safeTitle}">▶ WATCH NOW</button>
+                                    <button class="btn btn-secondary add-list-btn" data-title="${safeTitle}" data-img="${imgUrl}">+ MY LIST</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    indHtml += `<div class="indicator ${i===0?'active':''}" data-index="${i}"><div class="indicator-fill" style="${i===0?'width:100%':''}"></div></div>`;
+                }
+                insertHTML('heroSlidesContainer', heroHtml);
+                insertHTML('heroIndicators', indHtml);
+                initHeroCarousel(); 
+            }
+
+            // 2. Fetch Other Categories Concurrently
+            const [action, scifi, horror, animation, comedy, topRated] = await Promise.all([
+                fetchAPI('/discover/movie?with_genres=28'),
+                fetchAPI('/discover/movie?with_genres=878'),
+                fetchAPI('/discover/movie?with_genres=27'),
+                fetchAPI('/discover/movie?with_genres=16'),
+                fetchAPI('/discover/movie?with_genres=35'),
+                fetchAPI('/movie/top_rated')
+            ]);
+
+            // Dynamically set Category Hub Background Images
+            if(action.results[0]) document.getElementById('hub-action').style.backgroundImage = `url('${IMG_W780}${action.results[0].backdrop_path}')`;
+            if(scifi.results[0]) document.getElementById('hub-scifi').style.backgroundImage = `url('${IMG_W780}${scifi.results[0].backdrop_path}')`;
+            if(horror.results[0]) document.getElementById('hub-horror').style.backgroundImage = `url('${IMG_W780}${horror.results[0].backdrop_path}')`;
+            if(animation.results[0]) document.getElementById('hub-animation').style.backgroundImage = `url('${IMG_W780}${animation.results[0].backdrop_path}')`;
+            if(comedy.results[0]) document.getElementById('hub-comedy').style.backgroundImage = `url('${IMG_W780}${comedy.results[0].backdrop_path}')`;
+
+            // 3. Build Home Rows
+            const rowsConfig = [
+                { title: "Trending in Your Universe", data: trendingMovies.slice(5) },
+                { title: "Action & Adventure", data: action.results },
+                { title: "Sci-Fi Masterpieces", data: scifi.results },
+                { title: "Animation Studios", data: animation.results },
+                { title: "Horror & Thriller", data: horror.results },
+                { title: "Critically Acclaimed", data: topRated.results }
+            ];
+
+            let homeRowsHtml = '';
+            rowsConfig.forEach((row, i) => {
+                if(row.data && row.data.length > 0) {
+                    const cardsHtml = row.data.map(m => genCardHTML(m)).join('');
+                    homeRowsHtml += `
+                        <section class="content-section">
+                            <h2 class="section-title">${row.title}</h2>
+                            <div class="carousel-wrap">
+                                <button class="row-arrow left" onclick="document.getElementById('row-${i}').scrollBy({left:-800, behavior:'smooth'})">❮</button>
+                                <div class="row-container" id="row-${i}">${cardsHtml}</div>
+                                <button class="row-arrow right" onclick="document.getElementById('row-${i}').scrollBy({left:800, behavior:'smooth'})">❯</button>
+                            </div>
+                        </section>
+                    `;
+                }
+            });
+            insertHTML('home-rows-container', homeRowsHtml);
+
+            // 4. Build Sub-Page Grids
+            const buildGrid = (id, data, isAnim) => {
+                if(!data) return;
+                const html = data.filter(m=>m.backdrop_path).map(m => `
+                    <div class="card play-btn" data-title="${(m.title||m.name).replace(/'/g, "\\'")}" style="${isAnim?'border-radius:20px;':'border-radius:0;'}">
+                        <div class="card-img" style="background-image: url('${IMG_W780}${m.backdrop_path}');"></div>
+                        <div class="card-title">${m.title||m.name}</div>
+                    </div>
+                `).join('');
+                insertHTML(id, html);
+            };
+
+            buildGrid('movies-grid', action.results, false);
+            buildGrid('animation-grid', animation.results, true);
+        }
+
+        // --- Hero Carousel Logic ---
+        let slideInterval;
+        function initHeroCarousel() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.hero-slide');
+            const indicators = document.querySelectorAll('.indicator');
+            if(slides.length === 0) return;
+
+            const setSlide = (index) => {
+                slides[currentSlide].classList.remove('active');
+                indicators[currentSlide].classList.remove('active');
+                const oldFill = indicators[currentSlide].querySelector('.indicator-fill');
+                if(oldFill) { oldFill.style.animation = 'none'; oldFill.offsetHeight; }
+                
+                currentSlide = index;
+                
+                slides[currentSlide].classList.add('active');
+                indicators[currentSlide].classList.add('active');
+                const newFill = indicators[currentSlide].querySelector('.indicator-fill');
+                if(newFill) newFill.style.animation = 'fillProgress 12s linear forwards';
+                
+                clearInterval(slideInterval);
+                slideInterval = setInterval(() => setSlide((currentSlide + 1) % slides.length), 12000);
+            };
+            
+            document.getElementById('heroPrevBtn')?.addEventListener('click', () => setSlide((currentSlide - 1 + slides.length) % slides.length));
+            document.getElementById('heroNextBtn')?.addEventListener('click', () => setSlide((currentSlide + 1) % slides.length));
+            indicators.forEach(ind => ind.addEventListener('click', function() { setSlide(parseInt(this.dataset.index)); }));
+            
+            slideInterval = setInterval(() => setSlide((currentSlide + 1) % slides.length), 12000);
+        }
+
+        // --- Custom HTML5 Video Player ---
         const playerModal = document.getElementById('videoPlayerModal');
         const mainVideo = document.getElementById('mainVideo');
         const playIcon = document.getElementById('playIcon');
         const timeDisplay = document.getElementById('timeDisplay');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
         let hideControlsTimeout;
 
         window.openPlayer = (title) => {
-            if(playerModal) {
-                playerModal.classList.add('active');
-                mainVideo.currentTime = 0;
-                mainVideo.play().catch(e => console.warn(e));
-                playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
-                window.resetHideControlsTimer();
-            }
+            playerModal.classList.add('active');
+            mainVideo.currentTime = 0;
+            togglePlay();
+            resetHideControlsTimer();
         };
 
         window.closePlayer = () => {
-            if(playerModal) { playerModal.classList.remove('active'); mainVideo.pause(); }
+            if(playerModal) { 
+                playerModal.classList.remove('active'); 
+                mainVideo.pause(); 
+            }
         };
 
         document.getElementById('closePlayerBtn')?.addEventListener('click', window.closePlayer);
 
         const togglePlay = () => {
-            if (mainVideo.paused) { mainVideo.play(); playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>'; } 
-            else { mainVideo.pause(); playIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>'; }
+            if (mainVideo.paused) { 
+                mainVideo.play().catch(e => console.warn(e)); 
+                playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>'; 
+            } else { 
+                mainVideo.pause(); 
+                playIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>'; 
+            }
         };
 
         document.getElementById('playPauseBtn')?.addEventListener('click', togglePlay);
@@ -906,7 +824,7 @@
 
         mainVideo?.addEventListener('timeupdate', () => {
             const prog = (mainVideo.currentTime / mainVideo.duration) * 100;
-            document.getElementById('progressBar').style.width = `${prog}%`;
+            progressBar.style.width = `${prog}%`;
             let cm = Math.floor(mainVideo.currentTime / 60) || 0;
             let cs = Math.floor(mainVideo.currentTime % 60) || 0;
             let tm = Math.floor(mainVideo.duration / 60) || 0;
@@ -914,8 +832,8 @@
             timeDisplay.innerText = `${cm}:${cs<10?'0':''}${cs} / ${tm}:${ts<10?'0':''}${ts}`;
         });
 
-        document.getElementById('progressContainer')?.addEventListener('click', function(e) {
-            const rect = this.getBoundingClientRect();
+        progressContainer?.addEventListener('click', (e) => {
+            const rect = progressContainer.getBoundingClientRect();
             mainVideo.currentTime = ((e.clientX - rect.left) / rect.width) * mainVideo.duration;
         });
 
@@ -924,15 +842,28 @@
             else document.exitFullscreen();
         });
 
-        window.resetHideControlsTimer = () => {
+        const resetHideControlsTimer = () => {
             playerModal.classList.remove('idle');
             clearTimeout(hideControlsTimeout);
             hideControlsTimeout = setTimeout(() => { if(!mainVideo.paused) playerModal.classList.add('idle'); }, 3000);
         };
-        playerModal?.addEventListener('mousemove', window.resetHideControlsTimer);
-        playerModal?.addEventListener('touchstart', window.resetHideControlsTimer);
+        playerModal?.addEventListener('mousemove', resetHideControlsTimer);
+        playerModal?.addEventListener('touchstart', resetHideControlsTimer);
 
-        // --- Search ---
+        // --- Event Delegator for Play/Add ---
+        document.body.addEventListener('click', (e) => {
+            const playBtn = e.target.closest('.play-btn');
+            if (playBtn && !e.target.closest('.add-list-btn, .remove-btn, .nav-trigger')) {
+                const title = playBtn.dataset.title || "DMJ Original";
+                window.openPlayer(title);
+            }
+            const addBtn = e.target.closest('.add-list-btn');
+            if (addBtn) { e.stopPropagation(); window.addToMyList(addBtn.dataset.title, addBtn.dataset.img); }
+            const remBtn = e.target.closest('.remove-btn');
+            if (remBtn) { e.stopPropagation(); window.removeFromMyList(remBtn.dataset.index); }
+        });
+
+        // --- Search Logic (API Integrated) ---
         const searchModal = document.getElementById('searchModal');
         const searchInput = document.getElementById('searchInput');
         const searchSpinner = document.getElementById('searchSpinner');
@@ -952,32 +883,109 @@
         document.getElementById('searchBtnBottom')?.addEventListener('click', window.toggleSearch);
         document.getElementById('closeSearchBtn')?.addEventListener('click', window.toggleSearch);
 
-        window.triggerSearch = (query) => {
+        window.triggerSearch = async (query) => {
             if(!query.trim()) return;
             searchInput.value = query; searchTags.style.display = 'none';
             searchResults.classList.remove('active'); searchSpinner.style.display = 'block';
 
-            setTimeout(() => {
-                searchSpinner.style.display = 'none';
-                searchResults.innerHTML = `
-                    <div class="card play-btn" data-title="${query}" style="min-width: 100%;">
-                        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop');"></div>
-                        <div class="card-title">${query}</div>
+            // Fetch Search from TMDB
+            const data = await fetchAPI(`/search/movie?query=${encodeURIComponent(query)}`);
+            const movies = (data.results || []).filter(m => m.backdrop_path);
+
+            searchSpinner.style.display = 'none';
+            
+            if(movies.length === 0) {
+                searchResults.innerHTML = `<div style="color:var(--text-silver); text-align:center; grid-column: 1/-1;">No results found for "${query}"</div>`;
+            } else {
+                searchResults.innerHTML = movies.map(m => {
+                    const rating = m.vote_average ? m.vote_average.toFixed(1) : 'N/A';
+                    const year = m.release_date ? m.release_date.split('-')[0] : '';
+                    const safeTitle = (m.title||m.name).replace(/'/g, "\\'");
+                    return `
+                    <div class="card play-btn" data-title="${safeTitle}" style="min-width: 100%;">
+                        <div class="card-img" style="background-image: url('${IMG_W780}${m.backdrop_path}');"></div>
+                        <div class="card-meta"><span style="color: var(--accent-gold);">★ ${rating}</span><span>${year}</span></div>
+                        <div class="card-title">${m.title}</div>
                         <div class="card-actions" style="opacity: 1;">
                             <div class="action-circle primary">▶</div>
-                            <div class="action-circle add-list-btn" data-title="${query}" data-img="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe">+</div>
+                            <div class="action-circle add-list-btn" data-title="${safeTitle}" data-img="${IMG_W780}${m.backdrop_path}">+</div>
                         </div>
                     </div>
-                `;
-                searchResults.classList.add('active');
-            }, 800);
+                `}).join('');
+            }
+            searchResults.classList.add('active');
         };
 
         searchInput?.addEventListener('keypress', function(e) { if (e.key === 'Enter') window.triggerSearch(this.value); });
-        
-        document.querySelectorAll('.search-tag').forEach(el => {
-            el.addEventListener('click', function() { window.triggerSearch(this.dataset.query); });
+        document.querySelectorAll('.search-tag').forEach(el => { el.addEventListener('click', function() { window.triggerSearch(this.dataset.query); }); });
+
+        // --- Navigation Logic ---
+        window.switchView = (target) => {
+            document.querySelectorAll('.view-section, .nav-link, .mobile-nav-item').forEach(el => el.classList.remove('active'));
+            const viewEl = document.getElementById('view-' + target);
+            if(viewEl) viewEl.classList.add('active');
+            
+            document.querySelectorAll(`.nav-link[data-target="${target}"], .mobile-nav-item[data-target="${target}"]`).forEach(el => el.classList.add('active'));
+            document.getElementById('searchModal')?.classList.remove('active');
+            window.scrollTo(0,0);
+        };
+
+        document.querySelectorAll('.nav-trigger, .mobile-nav-item[data-target]').forEach(el => {
+            el.addEventListener('click', function(e) { e.preventDefault(); window.switchView(this.dataset.target); });
         });
+        
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // --- My List Logic ---
+        let mySavedList = [];
+        window.addToMyList = (title, img) => {
+            if (mySavedList.some(x => x.title === title)) { window.showToast(`"${title}" is already in My List`); return; }
+            mySavedList.push({ title: title, img: img });
+            window.showToast(`Added "${title}" to My List`);
+            window.renderMyList();
+        };
+
+        window.removeFromMyList = (index) => {
+            let removedTitle = mySavedList[index].title;
+            mySavedList.splice(index, 1);
+            window.showToast(`Removed "${removedTitle}"`);
+            window.renderMyList();
+        };
+
+        window.renderMyList = () => {
+            const grid = document.getElementById('myListGrid');
+            if(!grid) return;
+            if (mySavedList.length === 0) { grid.innerHTML = '<div class="empty-state">Your list is currently empty. Explore the universe and add some titles!</div>'; return; }
+            grid.innerHTML = mySavedList.map((x, i) => `
+                <div class="orig-card play-btn" data-title="${x.title}">
+                    <div class="orig-card-bg" style="background-image: url('${x.img}');"></div>
+                    <div class="orig-play-btn">▶</div>
+                    <div class="orig-info"><h3>${x.title}</h3></div>
+                    <button class="remove-btn" data-index="${i}" style="position:absolute; top:10px; right:10px; z-index:10; background:rgba(0,0,0,0.7); color:white; border:1px solid rgba(255,255,255,0.3); border-radius:50%; width:35px; height:35px; cursor:pointer; font-size:18px;">×</button>
+                </div>
+            `).join('');
+        };
+
+        // --- Profile Management Logic ---
+        let isEditingProfiles = false;
+        window.toggleEditProfiles = () => {
+            isEditingProfiles = !isEditingProfiles;
+            document.body.classList.toggle('editing-profiles');
+            const btn = document.getElementById('manageProfilesBtn');
+            if(btn) btn.innerText = isEditingProfiles ? "Done" : "Manage Profiles";
+        };
+        
+        window.handleProfileClick = (name) => {
+            if(isEditingProfiles) window.showToast(`Editing ${name}...`);
+            else { window.showToast(`Welcome back, ${name}`); window.switchView('home'); }
+        };
+
+        // Initialize the platform
+        initApp();
     });
     </script>
 </body>
